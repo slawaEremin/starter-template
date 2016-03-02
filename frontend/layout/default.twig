@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no_js lt_ie9 lt_ie8 lt_ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no_js lt_ie9 lt_ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no_js lt_ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no_js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}Title{% endblock %}</title>
+
+    {% block meta %}
+    <meta name="description" content="">
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32" href="favicon.ico">
+    <link rel="stylesheet" href="/assets/css/base.css"/>
+    {% block styles %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+{% block page %}{% endblock %}
+</body>
+</html>

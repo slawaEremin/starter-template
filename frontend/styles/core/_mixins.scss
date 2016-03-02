@@ -1,0 +1,368 @@
+
+
+//#CSS3 mixins
+
+@mixin linear-gradient( $gradient) {
+    background: -webkit-linear-gradient(#{$gradient});
+    background: -moz-linear-gradient(#{$gradient});
+    background: -o-linear-gradient(#{$gradient});
+    background: -ms-linear-gradient(#{$gradient});
+    background: linear-gradient(#{$gradient});
+}
+
+@mixin background-clip( $value) {
+    background: -webkit-background-clip(#{$value});
+    background: -moz-background-clip(#{$value});
+    background: background-clip(#{$value});
+}
+
+@mixin backface-visibility($gradient) {
+    background: -webkit-backface-visibility(#{$gradient});
+    background: backface-visibility(#{$gradient});
+}
+
+// Radial gradient:
+//`@include radial-gradient("center,  #ECF3F5, #DAE8EC");`
+
+@mixin radial-gradient ($gradient) {
+    background: -webkit-radial-gradient(#{$gradient});
+    background: -moz-radial-gradient(#{$gradient});
+    background: -o-radial-gradient(#{$gradient});
+    background: -ms-radial-gradient(#{$gradient});
+    background: radial-gradient(#{$gradient});
+}
+
+// Box-sizing:
+//`@include box-sizing(border-box)`
+
+@mixin box-sizing ($property) {
+    -moz-box-sizing: $property;
+    box-sizing: $property;
+}
+
+
+// background-clip:
+//`@include background-clip(border-box)`
+
+@mixin background-clip ($property) {
+    -moz-background-clip: $property;
+    -webkit-background-clip: $property;
+    background-clip: $property;
+}
+
+// Автоматические переносы, использовать с указание lang='ru':
+//`@include hypens(manual);`
+
+@mixin hyphens ($property) {
+    -webkit-hyphens: $property;
+    -moz-hyphens: $property;
+    -ms-hyphens: $property;
+    hyphens: $property;
+}
+
+// Animation:
+//`@include animation(stripes-animation 2s linear infinite);`
+
+@mixin animation($prop) {
+    -webkit-animation: #{$prop};
+    -moz-animation: #{$prop};
+    -ms-animation: #{$prop};
+    -o-animation: #{$prop};
+    animation: #{$prop};
+}
+
+@mixin animation-delay ($time) {
+    -webkit-animation-delay: $time;
+    -moz-animation-delay: $time;
+    -o-animation-delay: $time;
+    animation-delay: $time;
+}
+
+// Transition helper:
+//`@include transition(height .3s linear) ;`
+//`@include transition("height .3s linear, left .5s ease-in") ;`
+
+
+@mixin transition ($transit) {
+    -webkit-transition: #{$transit};
+    -moz-transition: #{$transit};
+    -ms-transition: #{$transit};
+    -o-transition: #{$transit};
+    transition: #{$transit};
+}
+
+// Transition delay helper:
+//`@include transition-delay(.3s) ;`
+
+@mixin transition-delay ($time) {
+    -webkit-transition-delay: $time;
+    -moz-transition-delay: $time;
+    -o-transition-delay: $time;
+    transition-delay: $time;
+}
+
+@mixin transition-property ($property) {
+    -webkit-transition-property: $property;
+    -moz-transition-property: $property;
+    -o-transition-property: $property;
+    transition-property: $property;
+}
+
+@mixin transition-duration ($duration) {
+    -webkit-transition-duration: $duration;
+    -moz-transition-duration: $duration;
+    -o-transition-duration: $duration;
+    transition-duration: $duration;
+}
+
+@mixin transition-timing ($function) {
+    -webkit-transition-timing-function: $function;
+    -moz-transition-timing-function: $function;
+    -o-transition-timing-function: $function;
+    transition-timing-function: $function;
+}
+
+// Transition delay helper:
+//`@include transform("scale(3)") ;`
+@mixin perspective ($perspective) {
+    -webkit-perspective: #{$perspective};
+    -moz-perspective: #{$perspective};
+    -ms-perspective: #{$perspective};
+    -o-perspective: #{$perspective};
+    perspective: #{$perspective};
+}
+
+@mixin transform ($trans) {
+    -webkit-transform: #{$trans};
+    -moz-transform: #{$trans};
+    -ms-transform: #{$trans};
+    -o-transform: #{$trans};
+    transform: #{$trans};
+}
+
+@mixin transform-origin ($trans) {
+    -webkit-transform-origin: #{$trans};
+    -moz-transform-origin: #{$trans};
+    -ms-transform-origin: #{$trans};
+    -o-transform-origin: #{$trans};
+    transform-origin: #{$trans};
+}
+
+//**Как работать с трансформами вместо перемещений margin и top**
+//задаете скорость трансофрма и функцию :
+//`.transformTransition(.3s linear);`
+
+@mixin transformTransition($property) {
+    -webkit-transition: -webkit-transform $property;
+    -moz-transition: -moz-transform $property;
+    -ms-transition: -ms-transform $property;
+    -o-transition: -o-transform $property;
+    transition: transform $property;
+}
+
+//Helper для перемещения объекта(x,y - от верхнего левого угла):
+//`@include translated(35px,0)`
+
+@mixin translated ($propTop, $propLeft) {
+    -moz-transform: translate($propLeft, $propTop);
+    -webkit-transform: translate($propLeft, $propTop);
+    -o-transform: translate($propLeft, $propTop);
+    -ms-transform: translate($propLeft, $propTop);
+    transform: translate($propLeft, $propTop);
+}
+
+//Расстояние между колонками:
+//`@include column-gap(30px)`
+
+@mixin column-gap($val) {
+    -webkit-column-gap: $val;
+    -moz-column-gap: $val;
+    column-gap: $val;
+}
+
+//Многоколоночный текст (ширинка колонки, количество колонок):
+//`@include columns(150px, 4)`
+
+@mixin columns($val) {
+    -webkit-columns: $val;
+    -moz-columns: $val;
+    columns: $val;
+}
+
+//User select helper :
+//`@include user-select(none)`
+
+@mixin user-select($val) {
+    -webkit-user-select: $val;
+    -moz-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+
+@mixin backface-visibility($val) {
+    -webkit-backface-visibility: $val;
+    -moz-backface-visibility: $val;
+    -ms-backface-visibility:$val ;
+    backface-visibility: $val;
+}
+
+
+//Отрисовывает треугольник, направленный вверх(размер, цвет):
+//`@include triangle-shape-up(5px, #fff)`
+
+@mixin triangle-shape-up ($size, $color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: $color transparent;
+    border-width: 0 $size $size;
+}
+
+//Отрисовывает треугольник, направленный вниз(размер, цвет):
+//`@include triangle-shape-bottom(5px, #fff)`
+
+@mixin triangle-shape-bottom ($size, $color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: $color transparent;
+    border-width: $size $size 0;
+}
+
+@mixin triangle-shape-left($size, $color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent $color;
+    border-width: $size $size $size 0;
+}
+
+@mixin triangle-shape-right($size, $color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent $color;
+    border-width: $size 0 $size $size;
+}
+
+// For icons position
+// если иконка нахоится в файле icons/icons-small.png
+
+//for icons position
+@mixin icon-pos($left, $top) {
+    background-position: -16px*$left  -16px*$top;
+}
+
+// если иконка нахоится в файле icons/icons-medium.png
+@mixin icon-posm($left, $top) {
+    background-position: -20px*$left  -20px*$top;
+}
+
+// если иконка нахоится в файле icons/icons-big.png
+@mixin icon-posb($left, $top) {
+    background-position: -25px*$left  -25px*$top;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+//common mixin
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+@mixin placeholder($color: $input-color-placeholder) {
+    &:-moz-placeholder            { color: $color; } // Firefox 4-18
+    &::-moz-placeholder           { color: $color;   // Firefox 19+
+        opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+@mixin hide-text() {
+    font: #{0/0} a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+@mixin img-responsive($display: block) {
+    display: $display;
+    max-width: 100%; // Part 1: Set a maximum relative to the parent
+    height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+    background-image: url($file-1x);
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) {
+        background-image: url($file-2x);
+        background-size: $width-1x $height-1x;
+    }
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin square($size) {
+    @include size($size, $size);
+}
+
+
+@mixin t-ellps() {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}

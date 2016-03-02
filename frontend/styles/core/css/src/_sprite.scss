@@ -1,0 +1,18 @@
+%svg-common {
+	background: url("sprite.svg") no-repeat;
+}
+
+$images--gold-default {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 621px;
+	height: 342px;
+}
+
+$images--gold-default23 {
+	@extend %svg-common;
+	background-position: 0 100%;
+	width: 885px;
+	height: 452px;
+}
+
